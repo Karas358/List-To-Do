@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/curve"
+    android:orientation="vertical"
+    android:padding="0.5dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="45dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8sp"
+        android:weightSum="3"
+        android:background="@drawable/curve"
+        >
+<!--
+        android:background="@color/colorPrimary"
+-->
+
+
+        <LinearLayout
+            android:padding="1sp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add New To-Do Task"
+                android:layout_marginBottom="1sp"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"/>
+        </LinearLayout>
+        <View
+            android:layout_width="100sp"
+            android:layout_height="2dp"
+            android:background="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10sp">
+
+        <!--<EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="What needs to be done?"></EditText>-->
+        <com.google.android.material.textfield.TextInputLayout
+
+            app:counterEnabled="true"
+            app:counterMaxLength="38"
+            app:errorEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="What needs to be done?">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:maxLength="38"
+                android:id="@+id/txtTask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            app:counterEnabled="true"
+            app:counterMaxLength="38"
+            app:errorEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Add a side note?">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:maxLength="38"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtSubTitle"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/curve"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="SAVE TASK"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</LinearLayout>
