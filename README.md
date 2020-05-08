@@ -4,8 +4,8 @@ Android application that uses Room to store a to-do list.
 
 Application was built using Android Studio using Java + SDK
 
-The application uses Room to store the data, which is why we added the dependency on the gradle.
-The application uses a recycler view to display the data, which is why we added the dependency on the gradle.
+The application uses Room to store the data.
+The application uses a recycler view to display the data.
 
 Grade dependencies
 
