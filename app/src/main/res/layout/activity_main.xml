@@ -97,7 +97,14 @@
             android:gravity="center"
             android:visibility="gone"
             android:text="Add To-Do List" />
-
+        <ProgressBar
+            android:gravity="center"
+            android:id="@+id/indeterminateBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTintMode="src_in"
+            ></ProgressBar>
 
 
 

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnAdd;
     EditText txtTask, txtSubtitle;
     static TextView txtProgressText, emptyView;
-    static ProgressBar progressBar;
+    static ProgressBar progressBar, progress_Bar;
     static ArrayList<Task> taskArrayList;
     Task task;
     TaskRepository taskRepository;
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         taskRepository = new TaskRepository(getApplicationContext());
         progressBar = findViewById(R.id.determinateBar);
+        progress_Bar = findViewById(R.id.indeterminateBar);
         txtTask = findViewById(R.id.txtTask);
         txtSubtitle = findViewById(R.id.txtSubTitle);
         txtProgressText = findViewById(R.id.txtProgressText);
@@ -144,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute(){
             super.onPreExecute();
+            progress_Bar.setVisibility(View.VISIBLE);
             taskRepository = new TaskRepository(context);
         }
 
@@ -169,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
             ListAdapter listAdapter = new ListAdapter(taskArrayList);
             recyclerView.setAdapter(listAdapter);
 
+            progress_Bar.setVisibility(View.INVISIBLE);
             if (taskList.isEmpty()) {
                 recyclerView.setVisibility(View.GONE);
                 emptyView.setVisibility(View.VISIBLE);
@@ -190,7 +193,13 @@ public class MainActivity extends AppCompatActivity {
     public  boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.removeAll:
+                progress_Bar.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.INVISIBLE);
+                emptyView.setVisibility(View.INVISIBLE);
                 taskRepository.deleteAllTasks();
+                progress_Bar.setVisibility(View.INVISIBLE);
+                recyclerView.setVisibility(View.INVISIBLE);
+                emptyView.setVisibility(View.VISIBLE);
                 return true;
             default:super.onOptionsItemSelected(menuItem);
         }

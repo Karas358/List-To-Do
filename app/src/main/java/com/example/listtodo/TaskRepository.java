@@ -3,6 +3,7 @@ package com.example.listtodo;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.room.Room;
@@ -13,6 +14,7 @@ public class TaskRepository {
     private String DB_NAME = "my_task_db";
     private AppDB appDB;
     Context context;
+    ProgressBar progressBar;
 
     public TaskRepository(Context context){
         this.context = context;
