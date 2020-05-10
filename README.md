@@ -27,3 +27,10 @@ Grade dependencies
     
     //Swipe Decoration For RecyclerView
     implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.2'
+    
+    
+
+
+
+    
+    
