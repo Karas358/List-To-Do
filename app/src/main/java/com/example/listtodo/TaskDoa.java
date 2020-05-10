@@ -3,6 +3,7 @@ package com.example.listtodo;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -14,7 +15,10 @@ public interface TaskDoa {
     @Query("SELECT * FROM task_table")
     List<Task> getAll();
 
-    @Insert
+    @Query("Delete from task_table")
+    void deleteAll();
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     Long insertTask(Task task);
 
     @Update
@@ -22,4 +26,6 @@ public interface TaskDoa {
 
     @Delete
     void deleteTask(Task task);
+
+
 }

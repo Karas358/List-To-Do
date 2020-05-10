@@ -21,10 +21,6 @@
         android:weightSum="3"
         android:background="@drawable/curve"
         >
-<!--
-        android:background="@color/colorPrimary"
--->
-
 
         <LinearLayout
             android:padding="1sp"
@@ -55,11 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10sp">
-
-        <!--<EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="What needs to be done?"></EditText>-->
         <com.google.android.material.textfield.TextInputLayout
 
             app:counterEnabled="true"
@@ -79,7 +70,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-
             app:counterEnabled="true"
             app:counterMaxLength="38"
             app:errorEnabled="true"

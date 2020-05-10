@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,15 +45,13 @@ public class MainActivity extends AppCompatActivity {
     static ProgressBar progressBar;
     static ArrayList<Task> taskArrayList;
     Task task;
-
+    TaskRepository taskRepository;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TaskRepository taskRepository = new TaskRepository(getApplicationContext());
-
-        //populateList();
+        taskRepository = new TaskRepository(getApplicationContext());
         progressBar = findViewById(R.id.determinateBar);
         txtTask = findViewById(R.id.txtTask);
         txtSubtitle = findViewById(R.id.txtSubTitle);
@@ -74,14 +73,6 @@ public class MainActivity extends AppCompatActivity {
                     case BottomSheetBehavior.STATE_HIDDEN:
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                         break;
-                    /*case BottomSheetBehavior.STATE_EXPANDED:
-                        break;
-                    case BottomSheetBehavior.STATE_COLLAPSED:
-                        break;
-                    case BottomSheetBehavior.STATE_DRAGGING:
-                        break;
-                    case BottomSheetBehavior.STATE_SETTLING:
-                        break;*/
                 }
                 Log.d("", "onStateChanged: " + newState);
             }
@@ -118,9 +109,6 @@ public class MainActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 Log.e("Task Deleted: -- ",taskArrayList.get(viewHolder.getAdapterPosition()).Title + " deleted");
 
-
-                //Toast.makeText(getApplicationContext(),task.Title + " Deleted ", Toast.LENGTH_LONG).show();
-
                 task = new Task();
                 task.Title = taskArrayList.get(viewHolder.getAdapterPosition()).Title;
                 task.SubTitle = taskArrayList.get(viewHolder.getAdapterPosition()).SubTitle;
@@ -134,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
                 new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                        //.addSwipeRightBackgroundColor(R.color.colorPrimaryDark)
                         .addBackgroundColor(ContextCompat.getColor(MainActivity.this, R.color.colorAccent))
                         .addActionIcon(R.drawable.ic_delete_forever_black_24dp)
                         .create()
@@ -200,5 +187,16 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public  boolean onOptionsItemSelected(MenuItem menuItem){
+        switch (menuItem.getItemId()){
+            case R.id.removeAll:
+                taskRepository.deleteAllTasks();
+                return true;
+            default:super.onOptionsItemSelected(menuItem);
+        }
+        return super.onOptionsItemSelected(menuItem);
     }
 }
