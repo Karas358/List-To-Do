@@ -13,7 +13,7 @@ Grade dependencies
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
     
-    //Material Deisgn Despendencies (EditText, ProgressBar)
+    //Material Deisgn Despendencies
     implementation 'com.google.android.material:material:1.1.0'
     
     //Room for storage
