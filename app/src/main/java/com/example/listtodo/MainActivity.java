@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                         break;
                 }
-                Log.d("", "onStateChanged: " + newState);
             }
             @Override public void onSlide(@NonNull View bottomSheet, float slideOffset) {
             }
@@ -107,8 +106,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                Log.e("Task Deleted: -- ",taskArrayList.get(viewHolder.getAdapterPosition()).Title + " deleted");
-
                 task = new Task();
                 task.Title = taskArrayList.get(viewHolder.getAdapterPosition()).Title;
                 task.SubTitle = taskArrayList.get(viewHolder.getAdapterPosition()).SubTitle;
