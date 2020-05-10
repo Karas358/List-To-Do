@@ -197,9 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 recyclerView.setVisibility(View.INVISIBLE);
                 emptyView.setVisibility(View.INVISIBLE);
                 taskRepository.deleteAllTasks();
-                progress_Bar.setVisibility(View.INVISIBLE);
-                recyclerView.setVisibility(View.INVISIBLE);
-                emptyView.setVisibility(View.VISIBLE);
+                new getTasks(getApplicationContext()).execute();
                 return true;
             default:super.onOptionsItemSelected(menuItem);
         }
