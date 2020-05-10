@@ -36,7 +36,13 @@ public class TaskRepository {
     }
 
     public void deleteAllTasks(){
-        appDB.taskDoa().deleteAll();
+        new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... voids){
+                appDB.taskDoa().deleteAll();
+                return null;
+            }
+        }.execute();
     }
 
     public void UpdateTask(final Task task){
