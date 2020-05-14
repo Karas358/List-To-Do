@@ -1,11 +1,7 @@
 # List-To-Do
-Android application that uses Room to store a to-do list.
+Demo android application that stores a to-do list, allowing the user to add, mark a task as complete and remove it. The application uses the Room persistence library. 
 
-
-Application was built using Android Studio using Java + SDK
-
-The application uses Room to store the data.
-The application uses a recycler view to display the data.
+Application was built using Android Studio using Java + Android SDK
 
 Grade dependencies
 
